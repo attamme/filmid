@@ -14,3 +14,13 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Database usage 
+
+ I have used TMDB as my database API for this app. Here you can read more about their API Terms of Use
+ [TMDB API Terms of Use](https://www.themoviedb.org/api-terms-of-use)
+
+ ## Running the project
+
+ In the terminal run `npm run dev` to start the React project.
+ To start the backend, open a second terminal window and go to the backend folder `cd backend` and run the server with `npm start`.

@@ -1,14 +1,21 @@
-export default function GenreSelector() {
+import { useEffect, useState } from "react";
+import { getMovieGenres } from "../api/tmdb";
+
+export default function GenreSelector({ value, onChange }) {
+  const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+    getMovieGenres().then(setGenres).catch(console.error);
+  }, []);
+
   return (
-    <div className="flex gap-2 mt-4">
-      {["Action", "Comedy", "Drama", "Thriller"].map((genre) => (
-        <button
-          key={genre}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg"
-        >
-          {genre}
-        </button>
-      ))}
-    </div>
+    <select
+      className="bg-gray-800 text-gray-100 px-3 py-2 rounded-md"
+      value={value || ""}
+      onChange={(e) => onChange?.(Number(e.target.value) || null)}
+    >
+      <option value="">All Genres</option>
+      {genres.map(g => <option key={g.id} value={g.id}>{g.name}</option>)}
+    </select>
   );
 }
