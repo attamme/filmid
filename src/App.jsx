@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
+import MoviePage from "./pages/MoviePage";
+import PersonPage from "./pages/PersonPage";
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/movie/:id" element={<MoviePage />} />
+            <Route path="/person/:id" element={<PersonPage />} />
           </Routes>
         </main>
       </div>
