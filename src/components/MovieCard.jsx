@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { posterUrl } from "../api/tmdb";
 
-export default function MovieCard({ movie, onFavorite }) {
+export default function MovieCard({ movie }) {
     const navigate = useNavigate();
     const img = posterUrl(movie.poster_path);
     
-    function favoriteClick() {
+    function onFavoriteClick(e) {
         // Gate: require account (simple for now)
         // Replace with real auth later; for demo, always show notice.
-        e.stopPropagation();
+        e.stopPropagation(); // stop React event bubbling
+        e.preventDefault(); // prevent native click behavior
         alert("Favoriting is available for accounts only. Please log in or sign up.")
     }
 
@@ -32,7 +33,8 @@ export default function MovieCard({ movie, onFavorite }) {
 
             {/* Favorite Button */}
             <button 
-                onClick={favoriteClick}
+                type="button"
+                onClick={onFavoriteClick}
                 className="absolute top-2 right-2 bg-black/60 text-white px-2 py-1 rounded-md hover:bg-black/80 transition text-sm"
             >
                 ☆
